@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.6.2/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.6.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.6.2/firebase-performance.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a94cc0b99c.js" crossorigin="anonymous"></script>
+
+    <style media="screen">
+      body { background: #181818; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #social { max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; display: flex; justify-content: space-between; }
+      #social .link { 
+          background: #181818; 
+          text-decoration: none; 
+          color: white; 
+          padding: 16px; 
+          border-radius: 4px; 
+      }
+      #avatar { display: block; text-align: center; margin: 100px auto 30px;}
+      #avatar img { border-radius:50%; }
+      #name { text-transform: uppercase; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="avatar">
+      <img src="img/logo.jpeg" alt="avatar" />
+    </div>
+    <div id="social">
+        <a target="_blank" href="https://github.com/lyonssp"><i class="link fab fa-github fa-2x"></i></a>
+        <a target="_blank" href="https://www.hackerrank.com/lyonssp"><i class="link fab fa-hackerrank fa-2x"></i></a>
+        <a target="_blank" href="https://www.linkedin.com/in/lyonssp"><i class="link fab fa-linkedin-in fa-2x"></i></a>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    </script>
+  </body>
+</html>
