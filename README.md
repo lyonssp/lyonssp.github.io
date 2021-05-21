@@ -1,2 +1,2 @@
-# site
+# lyonssp.dev
 My personal website
