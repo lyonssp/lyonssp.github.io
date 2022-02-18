@@ -1,5 +1,11 @@
 These are really just notes for me to work on my site
 
+## Serve site locally
+
+```
+$ firebase emulators:start
+```
+
 ## Deploy to firebase
 
 ```
