@@ -3,13 +3,8 @@ These are really just notes for me to work on my site
 ## Serve site locally
 
 ```
-$ firebase emulators:start
-```
-
-## Deploy to firebase
-
-```
-$ firebase deploy
+$ cd lyonssp.dev
+$ npm start
 ```
 
 ## Generate CSS
