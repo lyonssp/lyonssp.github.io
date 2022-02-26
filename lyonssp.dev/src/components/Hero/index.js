@@ -1,9 +1,10 @@
-import { HeroRow, HeroContainer, Image, HeroWrapper, TextWrapper, Subtitle, Heading, Column1, Column2, ImageWrap } from './HeroElements'
+import { Header, HeroRow, HeroContainer, HeroWrapper, Image, TextWrapper, Subtitle, Heading, Column1, Column2, ImageWrap } from './HeroElements'
 import programmer from '../../img/programmer.svg'
 
 const Hero = () => {
   return (
     <HeroContainer id="about">
+        <Header>About Me</Header>
         <HeroWrapper>
             <HeroRow>
                 <Column1>

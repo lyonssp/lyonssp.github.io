@@ -1,6 +1,4 @@
-import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import App from '../../App'
 import { Nav, NavbarContainer, NavLogo, Hamburger, NavMenu, NavItem, NavLinks } from './NavbarElements'
 
 const Navbar = ({ toggle }) => {
@@ -8,7 +6,6 @@ const Navbar = ({ toggle }) => {
     <>
         <Nav>
             <NavbarContainer>
-                <NavLogo to="/"><h1>lyonssp</h1></NavLogo>
                 <Hamburger onClick={toggle}>
                     <FaBars />
                 </Hamburger>

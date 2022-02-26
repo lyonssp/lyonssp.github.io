@@ -5,7 +5,7 @@ export const HobbiesContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: ${props => props.theme.lightBackground};
+    background: ${props => props.theme.darkBackground};
 
     @media screen and (max-width: 768px) {
         padding: 80px 0;

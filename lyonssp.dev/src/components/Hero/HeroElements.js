@@ -1,13 +1,28 @@
 import styled from "styled-components"
 
 export const HeroContainer = styled.div`
-    color: #fff;
-    background: '#f9f9f9';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: ${props => props.theme.darkBackground};
 
     @media screen and (max-width: 768px) {
         padding: 100px 0;
     }
-`;
+`
+
+export const Header = styled.h1`
+    position: sticky;
+    top: 90px;
+    color: ${props => props.theme.sectionHeader};
+    opacity: 0.2;
+    width: 100%:
+    font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+`
 
 export const HeroWrapper = styled.div`
     display: grid;
