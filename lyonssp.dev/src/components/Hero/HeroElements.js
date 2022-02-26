@@ -13,13 +13,12 @@ export const HeroContainer = styled.div`
 `
 
 export const Header = styled.h1`
-    position: sticky;
+    position: absolute;
     top: 90px;
     color: ${props => props.theme.sectionHeader};
     opacity: 0.2;
     width: 100%:
     font-size: 48px;
-    margin-top: 20px;
     margin-bottom: 60px;
     text-transform: uppercase;
 `

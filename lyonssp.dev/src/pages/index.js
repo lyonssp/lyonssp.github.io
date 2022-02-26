@@ -19,8 +19,7 @@ const Home = () => {
     secondary: '#8982FF',
     info: '#808080',
 
-    lightBackground: '#FFFFFF',
-    darkBackground: '#FAFAFA',
+    background: '#FFFFFF',
     
     nav: '#738BFF',
 
