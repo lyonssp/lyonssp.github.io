@@ -21,7 +21,7 @@ const Navbar = ({ toggle }) => {
                         <NavLinks to="career">Career</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to="hobbies">Hobbies</NavLinks>
+                        <NavLinks to="skills">Skills</NavLinks>
                     </NavItem>
                 </NavMenu>
             </NavbarContainer>

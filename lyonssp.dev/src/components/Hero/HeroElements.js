@@ -5,22 +5,7 @@ export const HeroContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: ${props => props.theme.darkBackground};
-
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
-`
-
-export const Header = styled.h1`
-    position: absolute;
-    top: 90px;
-    color: ${props => props.theme.sectionHeader};
-    opacity: 0.2;
-    width: 100%:
-    font-size: 48px;
-    margin-bottom: 60px;
-    text-transform: uppercase;
+    background: ${props => props.theme.background};
 `
 
 export const HeroWrapper = styled.div`

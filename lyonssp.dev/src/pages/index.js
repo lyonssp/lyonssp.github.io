@@ -3,8 +3,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import Hero from '../components/Hero'
 import Career from '../components/Career'
-import Hobbies from '../components/Hobbies'
-import Footer from '../components/Footer'
+import Skills from '../components/Skills'
 import { ThemeProvider } from 'styled-components'
 
 const Home = () => {
@@ -34,8 +33,7 @@ const Home = () => {
             <Navbar toggle={toggle} />
             <Hero />
             <Career />
-            <Hobbies />
-            <Footer />
+            <Skills />
         </ThemeProvider>
     </>
   )

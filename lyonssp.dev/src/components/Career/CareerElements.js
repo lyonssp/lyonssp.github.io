@@ -1,13 +1,35 @@
 import styled from "styled-components"
 
 export const CareerContainer = styled.div`
-    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: ${props => props.theme.background};
-    margin-bottom: 100px;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    position: relative;
+    border-top: .1rem dashed #c9c9c9;
+    &:before {
+        background: #c9c9c9;
+        color: #e9e9e9;
+        content: "</>";
+        width: 3.5rem;
+        height: 3.5rem;
+        border-style: solid;
+        border-width: .1rem;
+        border-color: #c9c9c9;
+        border-radius: 100%;
+        position: absolute;
+        top: -1.75rem;
+        left: calc(50% - 1.75rem);
+        line-height: 3.25rem;
+        text-indent: .325rem;
+        font-size: 2rem;
+        font-weight: 1rem;
+    }
 
     @media screen and (max-width: 768px) {
         padding: 80px 0;
@@ -76,7 +98,7 @@ export const CardWrapper = styled.div`
 export const CardImage = styled.img`
     width: 128px;
     height: 128px;
-    
+
     @media screen and (max-width: 480px) {
         width: 64px;
         height: 64px;
