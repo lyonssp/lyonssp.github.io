@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
 export const CareerContainer = styled.div`
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: ${props => props.theme.background};
+    margin-bottom: 100px;
 
     @media screen and (max-width: 768px) {
         padding: 80px 0;
@@ -27,6 +29,8 @@ export const CareerRow = styled.div`
     grid-auto-columns: minmax(auto, 1fr);
     align-items: center;
     grid-template-areas: 'col1 col2';
+
+    margin: 35px 0;
     height: 100%;
     width: 100%;
 
@@ -40,7 +44,6 @@ export const Column1 = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 15px;
     padding; 0 15px;
     grid-area: col1;
 `
@@ -50,7 +53,7 @@ export const Column2 = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 35px;
+    padding: 0px 150px;
     grid-area: col2;
 `
 

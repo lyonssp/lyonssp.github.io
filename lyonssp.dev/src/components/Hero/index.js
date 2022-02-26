@@ -4,7 +4,6 @@ import programmer from '../../img/programmer.svg'
 const Hero = () => {
   return (
     <HeroContainer id="about">
-        <Header>About Me</Header>
         <HeroWrapper>
             <HeroRow>
                 <Column1>

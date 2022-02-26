@@ -72,7 +72,6 @@ const Career = () => {
 
   return (
     <CareerContainer id="career">
-        <Header>Career</Header>
         {mocks.map(experience => {
             return <CareerRow>
                 <Column1>

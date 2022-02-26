@@ -1,11 +1,15 @@
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaCode } from 'react-icons/fa'
 import { Nav, NavbarContainer, NavLogo, Hamburger, NavMenu, NavItem, NavLinks } from './NavbarElements'
+import logo from "../../img/logo.svg"
 
 const Navbar = ({ toggle }) => {
   return (
     <>
         <Nav>
             <NavbarContainer>
+                <NavLogo>
+                    <FaCode />
+                </NavLogo>
                 <Hamburger onClick={toggle}>
                     <FaBars />
                 </Hamburger>

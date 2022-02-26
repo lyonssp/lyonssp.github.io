@@ -8,7 +8,6 @@ const Hobbies = () => {
   return (
     <>
         <HobbiesContainer id="hobbies">
-            <Header>Hobbies</Header>
             <HobbiesWrapper>
                 <HobbiesRow>
                     <CardWrapper>
