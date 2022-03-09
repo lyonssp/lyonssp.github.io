@@ -1,11 +1,17 @@
 import Grid from '@mui/material/Grid'
 import {styled, useTheme} from '@mui/material/styles';
-import {Button} from '@mui/material';
+import Button from '@mui/material/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
-import {ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar} from 'recharts'
+import {
+    ResponsiveContainer,
+    RadarChart,
+    PolarGrid,
+    PolarAngleAxis,
+    Radar
+} from 'recharts'
 
 const Hero = () => {
     const theme = useTheme();

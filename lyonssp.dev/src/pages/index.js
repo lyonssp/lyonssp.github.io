@@ -1,8 +1,11 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import {CssBaseline} from '@mui/material'
-import {createTheme, ThemeProvider} from '@mui/material/styles'
+import {createTheme, styled, ThemeProvider} from '@mui/material/styles'
 import {grey, indigo, teal} from '@mui/material/colors'
+import IconButton from "@mui/material/IconButton";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const Home = () => {
     const getDesignTokens = (mode) => ({
@@ -37,17 +40,11 @@ const Home = () => {
     });
 
     const [mode, setMode] = React.useState('dark');
-    const colorMode = React.useMemo(
-        () => ({
-            // The dark mode switch would invoke this method
-            toggleColorMode: () => {
-                setMode((prevMode) =>
-                    prevMode === 'light' ? 'dark' : 'light',
-                );
-            },
-        }),
-        [],
-    );
+    const toggleColorMode = () => {
+        setMode((prevMode) =>
+            prevMode === 'light' ? 'dark' : 'light',
+        );
+    }
 
     // Update the theme only if the mode changes
     const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
@@ -56,10 +53,19 @@ const Home = () => {
         <>
             <ThemeProvider theme={theme}>
                 <CssBaseline enableColorScheme/>
+                <ColorModeButton onClick={toggleColorMode}>
+                    {mode === 'light' ? <DarkModeIcon/> : <LightModeIcon/>}
+                </ColorModeButton>
                 <Hero/>
             </ThemeProvider>
         </>
     )
 }
+
+const ColorModeButton = styled(IconButton)(() => ({
+    position: 'absolute',
+    top: 10,
+    right: 20,
+}))
 
 export default Home
