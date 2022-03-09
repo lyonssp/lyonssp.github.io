@@ -1,56 +1,120 @@
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
-import { styled } from '@mui/material/styles';
-import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts'
+import {styled, useTheme} from '@mui/material/styles';
+import {Button} from '@mui/material';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import {ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar} from 'recharts'
 
 const Hero = () => {
+    const theme = useTheme();
+    const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
-        <Grid container spacing={2} sx={{ position: 'relative', height: '100vh', width: '100vw' }}>
-            <Grid item xs={12}>
-                <div>
-                    <Title>Sean Lyons</Title>
-                    <Subtitle>Modern Software Developer</Subtitle>
-                </div>
-            </Grid>
-            {charts.map(chart => {
-                return <Grid key={chart.title} item xs={12} md={4}>
-                    <ResponsiveContainer aspect={1.75}>
-                        <RadarChart data={chart.data}>
-                            <PolarGrid />
-                            <PolarAngleAxis dataKey="subject" tick={{ fill: 'white' }} />
-                            <Radar dataKey="A" stroke={chart.stroke} fill={chart.fill} fillOpacity={0.6} />
-                        </RadarChart>
-                    </ResponsiveContainer>
+        <HeroWrapper>
+            <Grid container spacing={isSmall ? 0 : 2}>
+                <Grid item xs={12}>
+                    <ProfileWrapper>
+                        <Title>Sean Lyons</Title>
+                        {/* need outer div around subtitle to enforce proper width for blink animation */}
+                        <div><Subtitle>Modern Software Developer</Subtitle></div>
+                        <Links>
+                            <Link
+                                href="https://github.com/lyonssp"
+                                target="_blank"
+                                startIcon={<GitHubIcon/>}
+                            >
+                                GitHub
+                            </Link>
+                            <Link
+                                href="https://www.linkedin.com/in/lyonssp"
+                                target="_blank"
+                                startIcon={<LinkedInIcon/>}
+                            >
+                                LinkedIn
+                            </Link>
+                            <Link
+                                href="https://github.com/lyonssp/resume/blob/master/resume.pdf"
+                                target="_blank"
+                                startIcon={<HistoryEduIcon/>}
+                            >
+                                Resume
+                            </Link>
+                        </Links>
+                    </ProfileWrapper>
                 </Grid>
-            })}
-        </Grid>
+            </Grid>
+            <ChartWrapper>
+                <Grid container>
+                    {charts(theme).map(chart => {
+                        return <Grid key={chart.title} item xs={12} md={4} margin="20px 0">
+                            <ResponsiveContainer aspect={1.75}>
+                                <RadarChart data={chart.data}>
+                                    <PolarGrid/>
+                                    <PolarAngleAxis dataKey="subject" tick={{fill: theme.palette.text.secondary}}/>
+                                    <Radar dataKey="A" stroke={chart.stroke} fill={chart.fill} fillOpacity={0.6}/>
+                                </RadarChart>
+                            </ResponsiveContainer>
+                        </Grid>
+                    })}
+                </Grid>
+            </ChartWrapper>
+        </HeroWrapper>
     )
 }
 
-const Title = styled('h1')(({ theme }) => ({
+const HeroWrapper = styled('div')(() => ({
+    height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+}))
+
+const ProfileWrapper = styled('div')(() => ({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 20,
+}))
+
+const Title = styled('h1')(({theme}) => ({
     margin: 0,
-    paddingLeft: 25,
-    paddingTop: 25,
-    fontSize: '100px',
+    color: theme.palette.primary.main,
     textTransform: 'uppercase',
-    fontFamily: 'Montserrat,sans-serif',
-    fontWeight: 800,
+    [theme.breakpoints.up('xs')]: {
+        fontSize: '32px',
+    }
 }));
 
-const Subtitle = styled('p')(({ theme }) => ({
+const Subtitle = styled('p')(({theme}) => ({
     margin: 0,
-    paddingLeft: 25,
-    fontSize: '32px',
+    paddingRight: 5,
+    color: theme.palette.secondary.main,
     textTransform: 'uppercase',
-    fontFamily: 'Montserrat,sans-serif',
-    fontWeight: 500,
     overflow: 'hidden',
     borderRight: `.15em solid white`,
     whiteSpace: 'nowrap',
     animation: 'typing 2s steps(20, end) forwards, blink 1s infinite',
-    fontSize: '1.6rem',
-    width: 0,
-    maxWidth: '32%', // TODO
+    [theme.breakpoints.up('xs')]: {
+        fontSize: '16px',
+    }
+}))
+
+const Links = styled('div')(() => ({
+    margin: 0,
+    padding: 0,
+}))
+
+const Link = styled(Button)(({theme}) => ({
+    color: theme.palette.text.secondary
+}))
+
+const ChartWrapper = styled('div')(() => ({
+    width: '100%',
+    margin: 0,
+    padding: 0,
 }))
 
 /* radar chart data */
@@ -145,26 +209,27 @@ const experience = [
 /* end radar chart data */
 
 /* radar chart configs */
-const charts = [
+const charts = (theme) => ([
     {
         title: 'Language Proficiency',
-        stroke: '#6F4D8F',
-        fill: '#8964AB',
+        stroke: theme.palette.primary.main,
+        fill: theme.palette.primary.main,
         data: lang,
     },
     {
         title: 'Operational Expertise',
-        stroke: '#5F7FA0',
-        fill: '#7F98B3',
+        stroke: theme.palette.primary.main,
+        fill: theme.palette.primary.main,
         data: ops,
     },
     {
         title: 'Job Experience',
-        stroke: '#56A99E',
-        fill: '#78BAB2',
+        stroke: theme.palette.primary.main,
+        fill: theme.palette.primary.main,
         data: experience,
     }
-]
+])
+
 /* end radar chart configs */
 
 export default Hero;
