@@ -17,6 +17,8 @@
     "@types/node": "^16.11.25",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",

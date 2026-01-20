@@ -12,6 +12,7 @@ import {
     PolarAngleAxis,
     Radar
 } from 'recharts'
+import { personalInfo, links, getCharts } from '../../data/portfolio'
 
 const Hero = () => {
     const theme = useTheme();
@@ -22,30 +23,30 @@ const Hero = () => {
             <Grid container spacing={isSmall ? 0 : 2}>
                 <Grid item xs={12}>
                     <ProfileWrapper>
-                        <Title>Sean Lyons</Title>
+                        <Title>{personalInfo.name}</Title>
                         {/* need outer div around subtitle to enforce proper width for blink animation */}
-                        <div><Subtitle>Modern Software Developer</Subtitle></div>
+                        <div><Subtitle>{personalInfo.title}</Subtitle></div>
                         <Links>
                             <Link
-                                href="https://github.com/lyonssp"
+                                href={links.github.url}
                                 target="_blank"
                                 startIcon={<GitHubIcon/>}
                             >
-                                GitHub
+                                {links.github.label}
                             </Link>
                             <Link
-                                href="https://www.linkedin.com/in/lyonssp"
+                                href={links.linkedin.url}
                                 target="_blank"
                                 startIcon={<LinkedInIcon/>}
                             >
-                                LinkedIn
+                                {links.linkedin.label}
                             </Link>
                             <Link
-                                href="https://github.com/lyonssp/resume/blob/master/resume.pdf"
+                                href={links.resume.url}
                                 target="_blank"
                                 startIcon={<HistoryEduIcon/>}
                             >
-                                Resume
+                                {links.resume.label}
                             </Link>
                         </Links>
                     </ProfileWrapper>
@@ -53,7 +54,7 @@ const Hero = () => {
             </Grid>
             <ChartWrapper>
                 <Grid container>
-                    {charts(theme).map(chart => {
+                    {getCharts(theme).map(chart => {
                         return <Grid key={chart.title} item xs={12} md={4} margin="20px 0">
                             <ResponsiveContainer aspect={1.75}>
                                 <RadarChart data={chart.data}>
@@ -122,120 +123,5 @@ const ChartWrapper = styled('div')(() => ({
     margin: 0,
     padding: 0,
 }))
-
-/* radar chart data */
-const lang = [
-    {
-        "subject": "Golang",
-        "A": 95,
-        "fullMark": 100
-    },
-    {
-        "subject": "Scala",
-        "A": 50,
-        "fullMark": 100
-    },
-    {
-        "subject": "Python",
-        "A": 70,
-        "fullMark": 100
-    },
-    {
-        "subject": "Clojure",
-        "A": 50,
-        "fullMark": 100
-    },
-    {
-        "subject": "Typescript",
-        "A": 75,
-        "fullMark": 100
-    },
-    {
-        "subject": "Java",
-        "A": 80,
-        "fullMark": 100
-    },
-]
-
-const ops = [
-    {
-        "subject": "Monitoring",
-        "A": 85,
-        "fullMark": 100
-    },
-    {
-        "subject": "Containers",
-        "A": 80,
-        "fullMark": 100
-    },
-    {
-        "subject": "Scalability",
-        "A": 85,
-        "fullMark": 100
-    },
-    {
-        "subject": "Infra as Code",
-        "A": 70,
-        "fullMark": 100
-    },
-    {
-        "subject": "CI/CD",
-        "A": 90,
-        "fullMark": 100
-    },
-]
-
-const experience = [
-    {
-        "subject": "SRE",
-        "A": 75,
-        "fullMark": 100
-    },
-    {
-        "subject": "Frontend",
-        "A": 50,
-        "fullMark": 100
-    },
-    {
-        "subject": "Backend",
-        "A": 90,
-        "fullMark": 100
-    },
-    {
-        "subject": "Architect",
-        "A": 85,
-        "fullMark": 100
-    },
-    {
-        "subject": "Systems",
-        "A": 75,
-        "fullMark": 100
-    },
-]
-/* end radar chart data */
-
-/* radar chart configs */
-const charts = (theme) => ([
-    {
-        title: 'Language Proficiency',
-        stroke: theme.palette.primary.main,
-        fill: theme.palette.primary.main,
-        data: lang,
-    },
-    {
-        title: 'Operational Expertise',
-        stroke: theme.palette.primary.main,
-        fill: theme.palette.primary.main,
-        data: ops,
-    },
-    {
-        title: 'Job Experience',
-        stroke: theme.palette.primary.main,
-        fill: theme.palette.primary.main,
-        data: experience,
-    }
-])
-
-/* end radar chart configs */
 
 export default Hero;
